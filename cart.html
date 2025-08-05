@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="header">
+        <a href="#"> <img src="/E-commerceWebsite/Frontend/img/logo12.jpg" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="New Collection.html">New Collection</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="active" href="cart.html"><i class="far fa-shopping-bag"></i> <span id="cart-count">0</span></a></li>
+                <li><a href="account.html"><i class="far fa-user"></i></a></li> 
+
+            </ul>
+        </div>
+    </section>
+
+    <section id="cart-section" class="section-p1">
+        <h2>Shopping Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be inserted here dynamically -->
+            </tbody>
+        </table>
+    
+        <div class="cart-summary">
+            <h3>Total: <span id="cart-total">0.00</span></h3>
+            <div class="cart-buttons">
+                <button id="clear-cart">Clear All Product</button>
+                <button id="buy-now">Buy Now</button>
+            </div>
+        </div>
+    </section>
+    
+
+    <script src="/E-commerceWebsite/Frontend/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Address</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7fafc;
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #3182ce;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2b6cb0;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add Delivery Address</h2>
+    <form id="addressForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required />
+
+      <label for="pincode">Pin Code</label>
+      <input type="text" id="pincode" required />
+
+      <label for="address">Address</label>
+      <textarea id="address" rows="4" required></textarea>
+
+      <label for="city">City</label>
+      <input type="text" id="city" required />
+
+      <label for="state">State</label>
+      <input type="text" id="state" required />
+
+      <button type="submit">Save Address</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("addressForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const userAddress = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        pincode: document.getElementById("pincode").value,
+        address: document.getElementById("address").value,
+        city: document.getElementById("city").value,
+        state: document.getElementById("state").value,
+      };
+
+      localStorage.setItem("userAddress", JSON.stringify(userAddress));
+      alert("✅ Address saved successfully!");
+      window.location.href = "payment.html";
+    });
+  </script>
+</body>
+</html>

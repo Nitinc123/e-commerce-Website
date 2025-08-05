@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign-Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        #account-section {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .account-box h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <section id="account-section">
+        <div class="account-box" id="login-box">
+            <h2>Login</h2>
+            
+            <!-- Login Form -->
+            <form id="login-form">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+            </form>
+            
+            <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+        </div>
+
+        <div class="account-box" id="signup-box" style="display: none;">
+            <h2>Create Account</h2>
+            
+            <!-- Sign Up Form -->
+            <form id="signup-form">
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <input type="email" id="signup-email" placeholder="Enter your email" required>
+                <input type="password" id="signup-password" placeholder="Enter your password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            
+            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("login-form");
+            const signupForm = document.getElementById("signup-form");
+            const signupBox = document.getElementById("signup-box");
+            const loginBox = document.getElementById("login-box");
+            const signupLink = document.getElementById("signup-link");
+            const loginLink = document.getElementById("login-link");
+
+            // Show Signup Form
+            signupLink.addEventListener("click", function (e) {
+                e.preventDefault();
+                loginBox.style.display = "none";
+                signupBox.style.display = "block";
+            });
+
+            // Show Login Form
+            loginLink.addEventListener("click", function (e) {
+                e.preventDefault();
+                signupBox.style.display = "none";
+                loginBox.style.display = "block";
+            });
+
+            // Handle Sign Up
+            signupForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("signup-email").value;
+                const password = document.getElementById("signup-password").value;
+
+                localStorage.setItem("user", JSON.stringify({ name, email, password }));
+                alert("Account Created! Please log in.");
+                signupBox.style.display = "none";
+                loginBox.style.display = "block";
+            });
+
+            // Handle Login
+            loginForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const user = JSON.parse(localStorage.getItem("user"));
+
+                if (user && user.email === email && user.password === password) {
+                    localStorage.setItem("loggedIn", "true");
+                    alert("Login Successful!");
+                    window.location.href = "index.html"; // Redirect to homepage or dashboard
+                } else {
+                    alert("Invalid credentials. Please try again.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

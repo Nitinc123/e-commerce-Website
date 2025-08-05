@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Payment Method</title>
+  <style>
+    body {
+      background-color: #f7fafc;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-container {
+      margin: 20px;
+    }
+
+    .white-background {
+      background-color: white;
+    }
+
+    .padding-4 {
+      padding: 1rem;
+    }
+
+    .primary-button {
+      background-color: #ecc94b;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      padding: 0.75rem;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .primary-button:hover {
+      background-color: #d69e2e;
+    }
+
+    .link-button {
+      color: #3182ce;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .payment-card {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 5px;
+    }
+
+    .payment-card img {
+      margin-left: auto;
+      width: 50px;
+      height: 50px;
+    }
+
+    .payment-card input {
+      margin-right: 1rem;
+    }
+
+    .payment-card p {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .address-display {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .cancel-button {
+      background-color: #f56565;
+      color: white;
+      border-radius: 5px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section-container">
+    <div class="white-background padding-4">
+      <div id="address-container">
+        <!-- Address will appear here -->
+        <div class="margin-bottom-4">
+          <a class="link-button" href="add-address.html" id="add-address-link">Add delivery address</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <h3>Select a payment method</h3>
+
+    <div class="payment-card">
+      <input type="radio" name="payment" />
+      <p>PhonePe</p>
+      <img src="https://storage.googleapis.com/a1aa/image/qDAMXvMg42dxtwVlXWNn954H4Piq63ZmgsH2gAnHpcc.jpg" alt="PhonePe" />
+    </div>
+
+    <div class="payment-card">
+      <input type="radio" name="payment" />
+      <p>Google Pay</p>
+      <img src="https://storage.googleapis.com/a1aa/image/wvSx-Y1A5lqEd7TNuMgpaQwmPrQb7HI1Z55r22NifYU.jpg" alt="Google Pay" />
+    </div>
+
+    <div class="payment-card">
+      <input type="radio" name="payment" />
+      <p>Other UPI</p>
+      <img src="https://storage.googleapis.com/a1aa/image/NRI_wBKsN-opoXGAjlUzwZQBGDFKNEA9Y9c_DJnh_U4.jpg" alt="UPI" />
+    </div>
+  </div>
+
+  <div class="section-container">
+    <button class="primary-button" id="payment-continue">Continue</button>
+  </div>
+
+  <script>
+    // Load address from localStorage and display
+    const addressData = JSON.parse(localStorage.getItem("userAddress"));
+    const addressContainer = document.getElementById("address-container");
+    const addAddressLink = document.getElementById("add-address-link");
+
+    if (addressData) {
+      addAddressLink.style.display = "none";
+
+      const display = document.createElement("div");
+      display.className = "address-display";
+      display.innerHTML = `
+        <strong>${addressData.name}</strong><br>
+        ${addressData.address}, ${addressData.city}, ${addressData.state} - ${addressData.pincode}<br>
+        📞 ${addressData.phone}
+      `;
+      addressContainer.appendChild(display);
+    }
+
+    document.getElementById("payment-continue").addEventListener("click", function () {
+  alert("🎉 Your order has been placed successfully!");
+  window.location.href = "index.html"; // Replace with your actual homepage
+});
+ 
+  </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | E-Commerce</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* About Section Styling */
+#about-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.about-text {
+    width: 60%;
+}
+
+.about-text h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.about-stats {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.stats-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.stats-item h3 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #f39c12;
+    margin-bottom: 10px;
+}
+
+.stats-item p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Marquee Section Styling */
+#about-marquee {
+    background-color: #e8f4f9;
+    padding: 15px 0;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#about-marquee marquee {
+    font-size: 1.3em;
+    color: #333;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about-head {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .about-text,
+    .about-stats {
+        width: 100%;
+    }
+
+    .about-stats {
+        margin-top: 20px;
+    }
+
+    .stats-item {
+        margin-bottom: 20px;
+    }
+
+    #about-marquee marquee {
+        font-size: 1.1em;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <section id="header">
+        <a href="#"> <img src="/E-commerceWebsite/Frontend/img/logo12.jpg" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="New Collection.html">New Collection</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <li><a href="account.html"><i class="far fa-user"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-head" class="section-p1">
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>Founded in 2010 by a group of passionate entrepreneurs, our company started with a small team and a big dream. Today, we are a global brand that has made its mark in over 100 countries. Our journey continues, driven by our commitment to quality, innovation, and sustainability.</p>
+            <p>Our mission is simple: to provide high-quality products at affordable prices while making a positive impact on the environment and communities we serve.</p>
+        </div>
+        <div class="about-stats">
+            <div class="stats-item">
+                <h3>100+</h3>
+                <p>Countries Served</p>
+            </div>
+            <div class="stats-item">
+                <h3>1M+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stats-item">
+                <h3>50+</h3>
+                <p>Product Categories</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section id="about-marquee">
+        <marquee bgcolor="#e8f4f9" loop="-1" scrollamount="6" width="100%">
+            Discover stunning products with customizable options in both basic and creative modes. Your fashion, your way.
+        </marquee>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter-section">
+        <div class="newsletter-text">
+            <h4>Stay Updated</h4>
+            <p>Get exclusive updates about our latest collections, sales, and special offers directly to your inbox.</p>
+        </div>
+        <div class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p><strong>Address:</strong> 123 Main St, Anytown, USA 12345</p>
+            <p><strong>Phone:</strong> +91 1234567890</p>
+            <p><strong>Business Hours:</strong> Mon - Sat, 10:00 AM - 6:00 PM</p>
+            <div class="social-icons">
+                <h4>Follow Us</h4>
+                <div class="social-icons-container">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h4>About Us</h4>
+            <a href="#">Who We Are</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+    </footer>
+
+    <script src="/E-commerceWebsite/Frontend/js/script.js"></script>
+</body>
+
+</html>

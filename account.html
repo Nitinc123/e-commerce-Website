@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Account Section Styling */
+        #account-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centering content horizontally */
+            justify-content: center; /* Centering content vertically */
+        }
+
+        /* Welcome Message */
+        #welcome-message {
+            font-size: 2.2em;
+            color: #2d3436;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Login Message Styling */
+        #login-message {
+            font-size: 1.1em;
+            color: #636e72;
+            margin-top: 20px;
+        }
+
+        /* Login Link Styling */
+        #login-message a {
+            color: #0984e3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #login-message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Button Styling */
+        #logout-btn {
+            background-color: #e74c3c;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 200px;
+            margin-top: 20px;
+        }
+
+        #logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #account-section {
+                width: 90%;
+                padding: 25px;
+            }
+
+            #welcome-message {
+                font-size: 1.8em;
+            }
+
+            #logout-btn {
+                width: 100%;
+                padding: 12px;
+            }
+
+            #login-message {
+                font-size: 1em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <section id="account-section">
+        <h2 id="welcome-message">Welcome to your account!</h2>
+        <button id="logout-btn" style="display:none;">Logout</button>
+        <p id="login-message" style="display:none;">You are not logged in. <a href="login.html">Login here</a></p>
+    </section>
+
+    <!-- Include the JavaScript file or script tag -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loggedInUser = JSON.parse(localStorage.getItem("user"));
+            const loggedIn = localStorage.getItem("loggedIn");
+
+            // Check if the user is logged in
+            if (loggedIn === "true" && loggedInUser) {
+                document.getElementById("welcome-message").innerText = `${loggedInUser.name}!`;
+                document.getElementById("logout-btn").style.display = "block"; // Show the logout button
+                document.getElementById("login-message").style.display = "none"; // Hide the login message
+            } else {
+                document.getElementById("welcome-message").innerText = "Please log in.";
+                document.getElementById("logout-btn").style.display = "none"; // Hide logout button if not logged in
+                document.getElementById("login-message").style.display = "block"; // Show login message and link
+            }
+
+            // Logout functionality
+            document.getElementById("logout-btn").addEventListener("click", function () {
+                localStorage.removeItem("loggedIn");
+                localStorage.removeItem("user");
+                alert("You have been logged out.");
+                window.location.href = "index.html"; // Redirect to homepage or login page
+            });
+        });
+    </script>
+</body>
+</html>
